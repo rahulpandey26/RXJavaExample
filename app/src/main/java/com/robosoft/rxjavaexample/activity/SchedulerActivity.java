@@ -7,9 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import com.robosoft.rxjavaexample.R;
-
 import java.util.concurrent.Callable;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -45,16 +43,15 @@ public class SchedulerActivity extends AppCompatActivity {
         mButton = (Button) findViewById(R.id.scheduleLongRunningOperation);
         mButton.setOnClickListener(v -> {
 //                mProgressBar.setVisibility(View.VISIBLE);
-            Observable.fromCallable(callable).
-                    subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).
+            Observable.fromCallable(callable).subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread()).
                     doOnSubscribe(disposable ->
                             {
                                 mProgressBar.setVisibility(View.VISIBLE);
                                 mButton.setEnabled(false);
                                 mMessageTxt.setText(mMessageTxt.getText().toString() + "\n" + "Progressbar set visible");
                             }
-                    ).
-                    subscribe(getDisposableObserver());
+                    ).subscribe(getDisposableObserver());
         });
     }
 
