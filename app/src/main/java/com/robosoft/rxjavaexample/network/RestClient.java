@@ -1,4 +1,4 @@
-package com.robosoft.rxjavaexample;
+package com.robosoft.rxjavaexample.network;
 
 import android.content.Context;
 import android.os.SystemClock;

@@ -1,4 +1,4 @@
-package com.robosoft.rxjavaexample;
+package com.robosoft.rxjavaexample.activity;
 
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.robosoft.rxjavaexample.R;
+
 import java.util.concurrent.Callable;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;

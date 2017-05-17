@@ -1,4 +1,4 @@
-package com.robosoft.rxjavaexample;
+package com.robosoft.rxjavaexample.activity;
 
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.robosoft.rxjavaexample.R;
 
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;

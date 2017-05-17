@@ -1,10 +1,12 @@
-package com.robosoft.rxjavaexample;
+package com.robosoft.rxjavaexample.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+
+import com.robosoft.rxjavaexample.R;
 
 /**
  * Created by Rahul Kumar Pandey on 17-05-2017.

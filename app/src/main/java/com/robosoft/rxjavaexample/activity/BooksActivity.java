@@ -1,4 +1,4 @@
-package com.robosoft.rxjavaexample;
+package com.robosoft.rxjavaexample.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
+
+import com.robosoft.rxjavaexample.R;
+import com.robosoft.rxjavaexample.adapter.RecyclerViewAdapter;
+import com.robosoft.rxjavaexample.network.RestClient;
 
 import java.util.List;
 
