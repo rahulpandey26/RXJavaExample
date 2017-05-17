@@ -15,7 +15,7 @@ import io.reactivex.disposables.Disposable;
 
 public class ColorsActivity extends AppCompatActivity {
 
-    private SimpleStringAdapter mSimpleStringAdapter;
+    private RecyclerViewAdapter mRecyclerViewAdapter;
     private Disposable mDisposable;
 
     @Override
@@ -29,13 +29,13 @@ public class ColorsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_colors);
         RecyclerView colorListView = (RecyclerView) findViewById(R.id.color_list);
         colorListView.setLayoutManager(new LinearLayoutManager(this));
-        mSimpleStringAdapter = new SimpleStringAdapter(this);
-        colorListView.setAdapter(mSimpleStringAdapter);
+        mRecyclerViewAdapter = new RecyclerViewAdapter(this);
+        colorListView.setAdapter(mRecyclerViewAdapter);
     }
 
     private void createObservable() {
         Observable<List<String>> listObservable = Observable.just(getColorList());
-        mDisposable = listObservable.subscribe(colors -> mSimpleStringAdapter.setStrings(colors));
+        mDisposable = listObservable.subscribe(colors -> mRecyclerViewAdapter.setStrings(colors));
     }
 
     private static List<String> getColorList() {

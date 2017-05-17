@@ -10,7 +10,7 @@ import android.view.View;
  * Created by Rahul Kumar Pandey on 17-05-2017.
  */
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

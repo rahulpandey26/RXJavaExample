@@ -20,7 +20,7 @@ public class BooksActivity extends AppCompatActivity {
     private Disposable mDisposable;
     private RecyclerView mBooksRecyclerView;
     private ProgressBar mProgressBar;
-    private SimpleStringAdapter mSimpleStringAdapter;
+    private RecyclerViewAdapter mRecyclerViewAdapter;
     private RestClient mRestClient;
 
     @Override
@@ -36,8 +36,8 @@ public class BooksActivity extends AppCompatActivity {
         mProgressBar = (ProgressBar) findViewById(R.id.loader);
         mBooksRecyclerView = (RecyclerView) findViewById(R.id.books_list);
         mBooksRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mSimpleStringAdapter = new SimpleStringAdapter(this);
-        mBooksRecyclerView.setAdapter(mSimpleStringAdapter);
+        mRecyclerViewAdapter = new RecyclerViewAdapter(this);
+        mBooksRecyclerView.setAdapter(mRecyclerViewAdapter);
     }
 
     private void createObservable() {
@@ -58,7 +58,7 @@ public class BooksActivity extends AppCompatActivity {
     }
 
     private void displayBooks(List<String> books) {
-        mSimpleStringAdapter.setStrings(books);
+        mRecyclerViewAdapter.setStrings(books);
         mProgressBar.setVisibility(View.GONE);
         mBooksRecyclerView.setVisibility(View.VISIBLE);
     }
