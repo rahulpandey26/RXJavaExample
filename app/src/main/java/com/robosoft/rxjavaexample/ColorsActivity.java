@@ -51,7 +51,7 @@ public class ColorsActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        if (mDisposable !=null && !mDisposable.isDisposed()) {
+        if (mDisposable != null && !mDisposable.isDisposed()) {
             mDisposable.dispose();
         }
     }

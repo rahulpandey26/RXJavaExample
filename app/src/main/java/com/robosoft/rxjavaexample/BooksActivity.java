@@ -6,7 +6,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
+
 import java.util.List;
+
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -43,10 +45,12 @@ public class BooksActivity extends AppCompatActivity {
     private void createObservable() {
         Observable<List<String>> booksObservable =
                 Observable.fromCallable(() -> mRestClient.getFavoriteBooks());
-        mDisposable = booksObservable.
-                subscribeOn(Schedulers.io()).
-                observeOn(AndroidSchedulers.mainThread()).
-                subscribe(strings -> displayBooks(strings));
+        mDisposable = booksObservable
+                // Run on a background thread
+                .subscribeOn(Schedulers.io())
+                // Be notified on the main thread
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(strings -> displayBooks(strings));
     }
 
     @Override
@@ -66,7 +70,7 @@ public class BooksActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        if (mDisposable !=null && !mDisposable.isDisposed()) {
+        if (mDisposable != null && !mDisposable.isDisposed()) {
             mDisposable.dispose();
         }
     }

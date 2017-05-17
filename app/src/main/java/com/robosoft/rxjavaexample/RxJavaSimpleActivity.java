@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -29,10 +30,9 @@ public class RxJavaSimpleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_rxjavasimple);
         findViewById(R.id.serverbutton).setOnClickListener(v -> {
             v.setEnabled(false); // disables the button until execution has finished
-            Disposable subscribe = serverDownloadObservable.
-                    observeOn(AndroidSchedulers.mainThread()).
-                    subscribeOn(Schedulers.io()).
-                    subscribe(integer -> {
+            Disposable subscribe = serverDownloadObservable.observeOn(AndroidSchedulers.mainThread())
+                    .subscribeOn(Schedulers.io())
+                    .subscribe(integer -> {
                         updateTheUserInterface(integer); // this methods updates the ui
                         v.setEnabled(true); // enables it again
                     });
@@ -52,7 +52,7 @@ public class RxJavaSimpleActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        if (disposable!=null && !disposable.isDisposed()) {
+        if (disposable != null && !disposable.isDisposed()) {
             disposable.dispose();
         }
     }
